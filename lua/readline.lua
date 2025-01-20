@@ -543,6 +543,10 @@ function readline.backward_kill_line()
   kill_to(curr_line_no(), 0)
 end
 
+function readline.backward_kill_to_indentation()
+  kill_to(curr_line_no(), cursor_col_at_end_of_leading_whitespace(curr_line()))
+end
+
 function readline.dwim_backward_kill_line()
   kill_to(dwim_beginning_of_line_pos(true))
 end
